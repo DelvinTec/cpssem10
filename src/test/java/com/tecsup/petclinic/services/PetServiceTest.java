@@ -52,7 +52,7 @@ public class PetServiceTest {
     @Test
     public void testFindPetByName() {
 
-        String FIND_NAME = "Leo";
+        String FIND_NAME = "Iggy";
         int SIZE_EXPECTED = 1;
 
         List<Pet> pets = this.petService.findByName(FIND_NAME);
@@ -95,7 +95,7 @@ public class PetServiceTest {
     @Test
     public void testCreatePet() {
 
-        String PET_NAME = "Ponky";
+        String PET_NAME = "Pancho";
         int OWNER_ID = 1;
         int TYPE_ID = 1;
 
@@ -123,9 +123,9 @@ public class PetServiceTest {
         int OWNER_ID = 1;
         int TYPE_ID = 1;
 
-        String UP_PET_NAME = "Bear2";
-        int UP_OWNER_ID = 2;
-        int UP_TYPE_ID = 2;
+        String UP_PET_NAME = "Bear3";
+        int UP_OWNER_ID = 3;
+        int UP_TYPE_ID = 3;
 
         Pet pet = new Pet(PET_NAME, OWNER_ID, TYPE_ID, null);
 
@@ -158,7 +158,7 @@ public class PetServiceTest {
     @Test
     public void testDeletePet() {
 
-        String PET_NAME = "Bird";
+        String PET_NAME = "Pancho";
         int OWNER_ID = 1;
         int TYPE_ID = 1;
 

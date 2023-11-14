@@ -22,9 +22,7 @@ public class PetServiceImpl implements PetService {
 
 	PetRepository petRepository;
 
-	public PetServiceImpl (PetRepository petRepository) {
-		this. petRepository = petRepository;
-	}
+	public PetServiceImpl (PetRepository petRepository) {this. petRepository = petRepository;}
 
 
 	/**
@@ -33,9 +31,7 @@ public class PetServiceImpl implements PetService {
 	 * @return
 	 */
 	@Override
-	public Pet create(Pet pet) {
-		return petRepository.save(pet);
-	}
+	public Pet create(Pet pet) {return petRepository.save(pet);}
 
 	/**
 	 * 
