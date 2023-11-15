@@ -2,6 +2,7 @@ package com.tecsup.petclinic.services;
 
 import com.tecsup.petclinic.entities.Owner;
 import com.tecsup.petclinic.entities.Specialist;
+import com.tecsup.petclinic.exception.OwnerNotFoundException;
 import com.tecsup.petclinic.exception.SpecialistNotFoundException;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
@@ -37,6 +38,41 @@ public class SpecialistServiceTest {
         assertEquals(SPEC_OFFICE, specialistCreated.getOffice());
         assertEquals(SPEC_H_OPEN, specialistCreated.getH_open());
         assertEquals(SPEC_H_CLOSE, specialistCreated.getH_close());
+
+    }
+
+
+
+    @Test
+    public void testDeleteSpecialist () {
+
+        String SPEC_NAME = "Alessandro";
+        String SPEC_OFFICE = "";
+        Integer SPEC_H_OPEN = 7;
+        Integer SPEC_H_CLOSE = 14;
+
+        // ------------ Create ---------------
+
+        Specialist  specialist = new Specialist (SPEC_NAME, SPEC_OFFICE, SPEC_H_OPEN, SPEC_H_CLOSE);
+        specialist = this.specialistService.create(specialist);
+        log.info("" + specialist);
+
+        // ------------ Delete ---------------
+
+        try {
+            this.specialistService.delete(specialist.getId());
+        } catch (SpecialistNotFoundException e) {
+            fail(e.getMessage());
+        }
+
+        // ------------ Validation ---------------
+
+        try {
+            this.specialistService.findById(specialist.getId());
+            assertTrue(false);
+        } catch (SpecialistNotFoundException e) {
+            assertTrue(true);
+        }
 
     }
 }
