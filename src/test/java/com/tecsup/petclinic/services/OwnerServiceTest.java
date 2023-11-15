@@ -41,7 +41,7 @@ public class OwnerServiceTest {
 	@Test
 	public void testCreateOwner() {
 
-		String OWNER_NAME = "Piero";
+		String OWNER_NAME = "Alessandro";
 		String OWNER_LAST = "Quiroz";
 		String OWNER_ADDRESS = "043 SJL";
 		String OWNER_CITY = "Lima";
