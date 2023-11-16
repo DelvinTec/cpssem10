@@ -6,7 +6,7 @@ import javax.persistence.*;
 import java.sql.Date;
 
 
-@Entity(name = "specialities")
+@Entity(name = "specialties")
 @Data
 public class Specialist {
 

@@ -1,6 +1,5 @@
 package com.tecsup.petclinic.services;
 
-import com.tecsup.petclinic.entities.Owner;
 import com.tecsup.petclinic.entities.Specialist;
 import com.tecsup.petclinic.exception.OwnerNotFoundException;
 import com.tecsup.petclinic.exception.SpecialistNotFoundException;
@@ -8,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import javax.persistence.criteria.CriteriaBuilder;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -19,6 +20,26 @@ public class SpecialistServiceTest {
     @Autowired
     private SpecialistService specialistService;
 
+
+    @Test
+    public void testFindSpecialistById() {
+
+        Integer ID = 1;
+        String NAME = "radiology";
+        Specialist specialist = null;
+
+        try {
+
+            specialist = this.specialistService.findById(ID);
+
+        } catch (SpecialistNotFoundException e) {
+            fail(e.getMessage());
+        }
+        log.info("" + specialist);
+
+        assertEquals(NAME, specialist.getName());
+
+    }
     @Test
     public void testCreateSpecialist() {
 
@@ -75,4 +96,9 @@ public class SpecialistServiceTest {
         }
 
     }
+
+    // Carlitos Torres: Implementando método para encontrar por ID
+
+
+
 }
