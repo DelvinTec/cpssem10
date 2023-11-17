@@ -62,6 +62,38 @@ public class SpecialistServiceTest {
 
     }
 
+    @Test
+    public void testUpdatedSpecialist() {
+        String SPEC_NAME = "Alessandro";
+        String SPEC_OFFICE = "Quiroz";
+        Integer SPEC_H_OPEN = 7;
+        Integer SPEC_H_CLOSE = 14;
+
+        String UP_SPEC_NAME = "Harold";
+        String UP_SPEC_OFFICE = "Lima";
+        Integer UP_SPEC_H_OPEN = 6;
+        Integer UP_SPEC_H_CLOSE = 12;
+
+        Specialist specialist = new Specialist(SPEC_NAME, SPEC_OFFICE, SPEC_H_OPEN, SPEC_H_CLOSE);
+
+        log.info(">" + specialist);
+        Specialist specialistCreated = this.specialistService.create(specialist);
+        log.info(">>" + specialistCreated);
+
+        specialistCreated.setName(UP_SPEC_NAME);
+        specialistCreated.setOffice(UP_SPEC_OFFICE);
+        specialistCreated.setH_open(UP_SPEC_H_OPEN);
+        specialistCreated.setH_close(UP_SPEC_H_CLOSE);
+
+        Specialist upgradeSpecialist = this.specialistService.update(specialistCreated);
+        log.info(">>>" + upgradeSpecialist);
+
+        assertEquals(UP_SPEC_NAME, upgradeSpecialist.getName());
+        assertEquals(UP_SPEC_OFFICE, upgradeSpecialist.getOffice());
+        assertEquals(UP_SPEC_H_OPEN, upgradeSpecialist.getH_open());
+        assertEquals(UP_SPEC_H_CLOSE, upgradeSpecialist.getH_close());
+    }
+
 
 
     @Test
